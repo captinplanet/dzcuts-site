@@ -44,6 +44,12 @@ export default function Home() {
             >
               Text for a Quote
             </a>
+            <a 
+              href="mailto:info@dzcuts.com" 
+              className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
+            >
+              Email Us
+            </a>
             <Link 
               href="#gallery" 
               className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-3 rounded-md font-bold text-lg"
