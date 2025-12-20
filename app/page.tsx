@@ -11,7 +11,7 @@ export default function Home() {
             DZ CUTS <span className="font-light text-stone-600">Lawn Care</span>
           </div>
           <a 
-            href="tel:4075550123" 
+            href="tel:3211469031" 
             className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm"
           >
             Call or Text
@@ -32,16 +32,27 @@ export default function Home() {
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
             Best Lawncare in Orlando.
           </h1>
-          <p className="text-lg md:text-xl text-stone-200 mb-8 max-w-lg mx-auto">
+          <p className="text-lg md:text-xl text-stone-200 mb-4 max-w-lg mx-auto">
             Professional mowing, edging, and cleanup. Reliable service you don't have to chase down.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="sms:4075550123" 
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
-            >
-              Text for a Quote
-            </a>
+          <p className="text-lg md:text-xl text-stone-200 mb-8 max-w-lg mx-auto">
+            Contact us to see how we can help you
+          </p>
+          <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="sms:3211469031" 
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105 w-52 text-center"
+              >
+                Call or Text
+              </a>
+              <a 
+                href="mailto:dzcuts407@gmail.com" 
+                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105 w-52 text-center"
+              >
+                Email
+              </a>
+            </div>
             <Link 
               href="#gallery" 
               className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-3 rounded-md font-bold text-lg"
@@ -103,17 +114,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- GALLERY (Placeholder) --- */}
+{/* --- GALLERY --- */}
       <section id="gallery" className="py-20 px-4 bg-stone-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Recent Work</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 1</div>
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 2</div>
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 3</div>
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 4</div>
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 5</div>
-             <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 6</div>
+             
+             {/* Image 1 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work1.png" 
+                 alt="Perfect lawn stripes" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
+             {/* Image 2 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work2.png" 
+                 alt="Crisp concrete edging" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
+             {/* Image 3 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work3.png" 
+                 alt="Garden bed mulch" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
+             {/* Image 4 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work4.png" 
+                 alt="Backyard mowing" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
+             {/* Image 5 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work5.png" 
+                 alt="Professional equipment" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
+             {/* Image 6 */}
+             <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
+               <Image 
+                 src="/work6.png" 
+                 alt="Clean driveway view" 
+                 fill 
+                 className="object-cover hover:scale-110 transition-transform duration-500"
+               />
+             </div>
+
           </div>
         </div>
       </section>
@@ -123,11 +189,14 @@ export default function Home() {
         <p className="font-bold text-white text-xl mb-4">DZ CUTS LAWN CARE</p>
         <p className="mb-8">Serving Southchase & Orlando</p>
         <a 
-          href="sms:4075550123" 
+          href="sms:3211469031" 
           className="inline-block bg-white text-stone-900 px-6 py-2 rounded-full font-bold hover:bg-stone-200 transition-colors"
         >
           Text Us Now
         </a>
+        <div className="mt-4">
+          <a href="mailto:dzcuts407@gmail.com" className="hover:text-white transition-colors">dzcuts407@gmail.com</a>
+        </div>
         <div className="mt-12 text-sm text-stone-600">
           &copy; {new Date().getFullYear()} DzCuts LLC. All rights reserved.
         </div>
