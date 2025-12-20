@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link"; // We still need this for internal links if you add them later
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -10,7 +10,6 @@ export default function Home() {
           <div className="font-bold text-xl tracking-tight text-green-800">
             DZ CUTS <span className="font-light text-stone-600">Lawn Care</span>
           </div>
-          {/* UPDATED: Changed Link to a tag for direct dialing */}
           <a 
             href="tel:4075550123" 
             className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm"
@@ -22,7 +21,6 @@ export default function Home() {
 
       {/* --- HERO SECTION --- */}
       <section className="relative h-[500px] flex items-center justify-center bg-stone-900 text-white">
-        {/* Placeholder for Hero Image */}
         <div className="absolute inset-0 bg-black/50 z-10" />
         <div 
             className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558904541-efa843a96f01?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" 
@@ -30,6 +28,7 @@ export default function Home() {
         />
         
         <div className="relative z-20 text-center px-4 max-w-2xl">
+          {/* UPDATED HEADLINE HERE */}
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
             Best Lawncare in Orlando.
           </h1>
@@ -37,18 +36,11 @@ export default function Home() {
             Professional mowing, edging, and cleanup. Reliable service you don't have to chase down.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            {/* UPDATED: Changed Link to a tag for SMS */}
             <a 
               href="sms:4075550123" 
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
             >
               Text for a Quote
-            </a>
-            <a 
-              href="mailto:info@dzcuts.com" 
-              className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
-            >
-              Email Us
             </a>
             <Link 
               href="#gallery" 
@@ -65,19 +57,16 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            {/* Service 1 */}
             <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
               <div className="text-green-600 text-4xl mb-4">🌱</div>
               <h3 className="text-xl font-bold mb-2">Weekly Mowing</h3>
               <p className="text-stone-600">Consistent, reliable cuts on a schedule. We show up when we say we will.</p>
             </div>
-            {/* Service 2 */}
             <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
               <div className="text-green-600 text-4xl mb-4">✂️</div>
               <h3 className="text-xl font-bold mb-2">Edging & Trimming</h3>
               <p className="text-stone-600">Crisp edges along driveways and sidewalks make the difference.</p>
             </div>
-            {/* Service 3 */}
             <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
               <div className="text-green-600 text-4xl mb-4">🍂</div>
               <h3 className="text-xl font-bold mb-2">Cleanup & Mulch</h3>
@@ -87,21 +76,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- GALLERY (Placeholder Grid) --- */}
+      {/* --- TESTIMONIALS --- */}
+      <section className="py-20 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">What Our Neighbors Say</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+              <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
+              <p className="text-stone-600 mb-6 italic">"David is the only guy who actually shows up when he says he will. My lawn has never looked better. Highly recommend for anyone in Southchase."</p>
+              <div className="font-bold text-stone-900">- Sarah J.</div>
+            </div>
+            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+              <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
+              <p className="text-stone-600 mb-6 italic">"Great prices and he doesn't leave a mess behind. David even trimmed the hedges near the porch without me asking."</p>
+              <div className="font-bold text-stone-900">- Mike T.</div>
+            </div>
+            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+              <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
+              <p className="text-stone-600 mb-6 italic">"Finally found a reliable lawn guy. Setup was easy and I can just text him whenever I need an extra cut."</p>
+              <div className="font-bold text-stone-900">- Amanda R.</div>
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <a href="#" className="text-green-700 font-bold hover:underline">Read more on Google Reviews &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      {/* --- GALLERY (Placeholder) --- */}
       <section id="gallery" className="py-20 px-4 bg-stone-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Recent Work</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-             {/* Replace these with <Image /> components later */}
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 1</div>
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 2</div>
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 3</div>
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 4</div>
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 5</div>
              <div className="aspect-square bg-stone-300 rounded-lg flex items-center justify-center text-stone-500 font-medium">Photo 6</div>
-          </div>
-          <div className="text-center mt-12">
-            <a href="#" className="text-green-700 font-bold hover:underline">See more on Google Reviews &rarr;</a>
           </div>
         </div>
       </section>
@@ -110,7 +122,6 @@ export default function Home() {
       <footer className="bg-stone-900 text-stone-400 py-12 px-4 text-center">
         <p className="font-bold text-white text-xl mb-4">DZ CUTS LAWN CARE</p>
         <p className="mb-8">Serving Southchase & Orlando</p>
-        {/* UPDATED: Changed Link to a tag for SMS */}
         <a 
           href="sms:4075550123" 
           className="inline-block bg-white text-stone-900 px-6 py-2 rounded-full font-bold hover:bg-stone-200 transition-colors"
@@ -118,7 +129,7 @@ export default function Home() {
           Text Us Now
         </a>
         <div className="mt-12 text-sm text-stone-600">
-          &copy; {new Date().getFullYear()} DzCuts420 LLC. All rights reserved.
+          &copy; {new Date().getFullYear()} DzCuts LLC. All rights reserved.
         </div>
       </footer>
     </div>
