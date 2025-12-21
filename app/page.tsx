@@ -3,8 +3,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.dzcutslawncare.com'),
   title: "Dz Cuts Lawn Care | Best Lawncare in Orlando & Southchase",
   description: "Professional lawn mowing, edging, and cleanup services in Orlando and Southchase. Reliable, affordable, and high-quality lawn care.",
+  alternates: {
+    canonical: '/',
+  },
 };
 
 export default function Home() {
@@ -30,7 +34,8 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "HomeAndConstructionBusiness",
     "name": "Dz Cuts Lawn Care",
-    "image": "https://dzcuts-site.vercel.app/work1.png",
+    "url": "https://www.dzcutslawncare.com",
+    "image": "https://www.dzcutslawncare.com/work1.png",
     "description": "Professional lawn care, mowing, edging, and landscaping services in Orlando.",
     "areaServed": areaServedSchema, // Updated to use the object array
     "telephone": "321-146-9031",
