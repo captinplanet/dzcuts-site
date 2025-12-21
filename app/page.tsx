@@ -1,9 +1,28 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Dz Cuts Lawn Care | Best Lawncare in Orlando & Southchase",
+  description: "Professional lawn mowing, edging, and cleanup services in Orlando and Southchase. Reliable, affordable, and high-quality lawn care.",
+};
+
 export default function Home() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LawnAndGardenBusiness",
+    "name": "Dz Cuts Lawn Care",
+    "areaServed": ["Orlando", "Southchase"],
+    "telephone": "321-146-9031",
+    "email": "dzcuts407@gmail.com"
+  };
+
   return (
     <div className="min-h-screen bg-stone-50 text-stone-800 font-sans">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* --- HEADER --- */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-stone-200">
         <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -29,33 +48,28 @@ export default function Home() {
         
         <div className="relative z-20 text-center px-4 max-w-2xl">
           {/* UPDATED HEADLINE HERE */}
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-md tracking-tight mb-4">
             Best Lawncare in Orlando.
           </h1>
-          <p className="text-lg md:text-xl text-stone-200 mb-4 max-w-lg mx-auto">
+          <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm mb-4 max-w-lg mx-auto">
             Professional mowing, edging, and cleanup. Reliable service you don't have to chase down.
           </p>
-          <p className="text-lg md:text-xl text-stone-200 mb-8 max-w-lg mx-auto">
-            Contact us to see how we can help you
-          </p>
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="sms:3211469031" 
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105 w-52 text-center"
-              >
-                Call or Text
-              </a>
-              <a 
-                href="mailto:dzcuts407@gmail.com" 
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105 w-52 text-center"
-              >
-                Email
-              </a>
-            </div>
+          <a 
+            href="tel:3211469031" 
+            className="inline-block mb-8 bg-white/90 text-green-800 font-extrabold rounded-full px-6 py-2 shadow-lg hover:scale-105 transition-transform text-3xl md:text-4xl"
+          >
+            Call or Text: 321-146-9031
+          </a>
+          <div className="flex gap-4 justify-center">
+            <a 
+              href="mailto:dzcuts407@gmail.com" 
+              className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
+            >
+              Email
+            </a>
             <Link 
               href="#gallery" 
-              className="bg-white text-stone-900 hover:bg-stone-100 px-8 py-3 rounded-md font-bold text-lg"
+              className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
             >
               See Our Work
             </Link>
@@ -64,21 +78,21 @@ export default function Home() {
       </section>
 
       {/* --- SERVICES --- */}
-      <section className="py-20 px-4 bg-white">
+      <section className="py-20 px-4 bg-stone-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white border border-stone-100 shadow-md">
               <div className="text-green-600 text-4xl mb-4">🌱</div>
               <h3 className="text-xl font-bold mb-2">Weekly Mowing</h3>
               <p className="text-stone-600">Consistent, reliable cuts on a schedule. We show up when we say we will.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white border border-stone-100 shadow-md">
               <div className="text-green-600 text-4xl mb-4">✂️</div>
               <h3 className="text-xl font-bold mb-2">Edging & Trimming</h3>
               <p className="text-stone-600">Crisp edges along driveways and sidewalks make the difference.</p>
             </div>
-            <div className="p-6 rounded-2xl bg-stone-50 border border-stone-100 shadow-sm">
+            <div className="p-6 rounded-2xl bg-white border border-stone-100 shadow-md">
               <div className="text-green-600 text-4xl mb-4">🍂</div>
               <h3 className="text-xl font-bold mb-2">Cleanup & Mulch</h3>
               <p className="text-stone-600">Seasonal cleanup, leaf removal, and fresh mulch installation.</p>
@@ -92,17 +106,17 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">What Our Neighbors Say</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+            <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
-              <p className="text-stone-600 mb-6 italic">"David is the only guy who actually shows up when he says he will. My lawn has never looked better. Highly recommend for anyone in Southchase."</p>
-              <div className="font-bold text-stone-900">- Sarah J.</div>
+              <p className="text-stone-600 mb-6 italic">"David is the only guy who actually shows up when he says he will. My lawn has never looked better. Highly recommend for anyone in South Orlando."</p>
+              <div className="font-bold text-stone-900">- Russ K.</div>
             </div>
-            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+            <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
               <p className="text-stone-600 mb-6 italic">"Great prices and he doesn't leave a mess behind. David even trimmed the hedges near the porch without me asking."</p>
               <div className="font-bold text-stone-900">- Mike T.</div>
             </div>
-            <div className="bg-stone-50 p-6 rounded-2xl shadow-sm border border-stone-100">
+            <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
               <p className="text-stone-600 mb-6 italic">"Finally found a reliable lawn guy. Setup was easy and I can just text him whenever I need an extra cut."</p>
               <div className="font-bold text-stone-900">- Amanda R.</div>
@@ -126,6 +140,7 @@ export default function Home() {
                  src="/work1.png" 
                  alt="Perfect lawn stripes" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
@@ -136,6 +151,7 @@ export default function Home() {
                  src="/work2.png" 
                  alt="Crisp concrete edging" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
@@ -146,6 +162,7 @@ export default function Home() {
                  src="/work3.png" 
                  alt="Garden bed mulch" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
@@ -156,6 +173,7 @@ export default function Home() {
                  src="/work4.png" 
                  alt="Backyard mowing" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
@@ -166,6 +184,7 @@ export default function Home() {
                  src="/work5.png" 
                  alt="Professional equipment" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
@@ -176,6 +195,7 @@ export default function Home() {
                  src="/work6.png" 
                  alt="Clean driveway view" 
                  fill 
+                 sizes="(max-width: 768px) 50vw, 33vw"
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
