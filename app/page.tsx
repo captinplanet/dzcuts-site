@@ -8,13 +8,54 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const serviceAreas = [
+    "Orlando",
+    "Southchase",
+    "SoDo District",
+    "Conway",
+    "Lake Nona",
+    "Belle Isle",
+    "Hunter’s Creek",
+    "International Drive",
+    "Millenia",
+  ];
+
+  // We map the string array to objects for better Schema compliance
+  const areaServedSchema = serviceAreas.map(area => ({
+    "@type": "Place",
+    "name": area
+  }));
+
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "LawnAndGardenBusiness",
+    "@type": "HomeAndConstructionBusiness",
     "name": "Dz Cuts Lawn Care",
-    "areaServed": ["Orlando", "Southchase"],
+    "image": "https://dzcuts-site.vercel.app/work1.png",
+    "description": "Professional lawn care, mowing, edging, and landscaping services in Orlando.",
+    "areaServed": areaServedSchema, // Updated to use the object array
     "telephone": "321-146-9031",
-    "email": "dzcuts407@gmail.com"
+    "email": "dzcuts407@gmail.com",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Orlando",
+      "addressRegion": "FL",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "08:00",
+        "closes": "18:00"
+      }
+    ]
   };
 
   return (
@@ -39,20 +80,22 @@ export default function Home() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[500px] flex items-center justify-center bg-stone-900 text-white">
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <div 
-            className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1558904541-efa843a96f01?q=80&w=2000&auto=format&fit=crop')] bg-cover bg-center" 
-            aria-hidden="true"
+      <section className="relative h-[500px] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
+        <Image
+          src="/hero-bg.avif"
+          alt="Beautifully manicured green lawn in Orlando"
+          fill={true}
+          priority={true}
+          className="object-cover opacity-60"
         />
         
         <div className="relative z-20 text-center px-4 max-w-2xl">
-          {/* UPDATED HEADLINE HERE */}
           <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-md tracking-tight mb-4">
             Best Lawncare in Orlando.
           </h1>
+          {/* FIXED: Added &apos; to don't */}
           <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm mb-4 max-w-lg mx-auto">
-            Professional mowing, edging, and cleanup. Reliable service you don't have to chase down.
+            Professional mowing, edging, and cleanup. Reliable service you don&apos;t have to chase down.
           </p>
           <a 
             href="tel:3211469031" 
@@ -68,12 +111,12 @@ export default function Home() {
             >
               Email
             </a>
-            <Link 
+            <a 
               href="#gallery" 
               className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
             >
               See Our Work
-            </Link>
+            </a>
           </div>
         </div>
       </section>
@@ -119,17 +162,18 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
-              <p className="text-stone-600 mb-6 italic">"David is the only guy who actually shows up when he says he will. My lawn has never looked better. Highly recommend for anyone in South Orlando."</p>
+              <p className="text-stone-600 mb-6 italic">&quot;David is the only guy who actually shows up when he says he will. My lawn has never looked better. Highly recommend for anyone in South Orlando.&quot;</p>
               <div className="font-bold text-stone-900">- Russ K.</div>
             </div>
             <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
-              <p className="text-stone-600 mb-6 italic">"Great prices and he doesn't leave a mess behind. David even trimmed the hedges near the porch without me asking."</p>
+              {/* FIXED: Added &apos; to doesn't */}
+              <p className="text-stone-600 mb-6 italic">&quot;Great prices and he doesn&apos;t leave a mess behind. David even trimmed the hedges near the porch without me asking.&quot;</p>
               <div className="font-bold text-stone-900">- Mike T.</div>
             </div>
             <div className="bg-green-50 p-6 rounded-2xl shadow-sm border border-green-100">
               <div className="flex text-yellow-400 mb-4 text-xl">★★★★★</div>
-              <p className="text-stone-600 mb-6 italic">"Finally found a reliable lawn guy. Setup was easy and I can just text him whenever I need an extra cut."</p>
+              <p className="text-stone-600 mb-6 italic">&quot;Finally found a reliable lawn guy. Setup was easy and I can just text him whenever I need an extra cut.&quot;</p>
               <div className="font-bold text-stone-900">- Amanda R.</div>
             </div>
           </div>
@@ -139,12 +183,36 @@ export default function Home() {
         </div>
       </section>
 
-{/* --- GALLERY --- */}
-      <section id="gallery" className="py-20 px-4 bg-stone-100">
+      {/* --- FAQ --- */}
+      <section className="py-20 px-4 bg-stone-50">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Common Questions</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-bold text-green-800 mb-3">How do I pay?</h3>
+              <p className="text-stone-600 leading-relaxed">We accept Cash, Zelle, and Venmo after the job is done.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-green-800 mb-3">Do I have to be home?</h3>
+              <p className="text-stone-600 leading-relaxed">No. Just leave the gate unlocked and we handle the rest.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-green-800 mb-3">Is there a contract?</h3>
+              <p className="text-stone-600 leading-relaxed">No contracts. We earn your business with every single cut.</p>
+            </div>
+            <div>
+              <h3 className="font-bold text-green-800 mb-3">What about rain?</h3>
+              <p className="text-stone-600 leading-relaxed">We track the weather and automatically reschedule for dry days.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- GALLERY --- */}
+      <section id="gallery" className="py-20 px-4 bg-stone-100 scroll-mt-32">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Recent Work</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-             
              {/* Image 1 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -155,7 +223,6 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
              {/* Image 2 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -166,7 +233,6 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
              {/* Image 3 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -177,7 +243,6 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
              {/* Image 4 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -188,7 +253,6 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
              {/* Image 5 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -199,7 +263,6 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
              {/* Image 6 */}
              <div className="relative aspect-square rounded-lg overflow-hidden shadow-sm">
                <Image 
@@ -210,24 +273,31 @@ export default function Home() {
                  className="object-cover hover:scale-110 transition-transform duration-500"
                />
              </div>
-
           </div>
         </div>
       </section>
 
       {/* --- SERVICE AREA --- */}
       <section className="py-16 px-4 bg-white border-t border-stone-100">
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-stone-800 mb-6">Serving Our Community</h2>
-          <p className="text-lg text-stone-600 leading-relaxed">
-            We proudly serve homeowners and businesses across Orlando and South Orlando, providing expert services to the SoDo District, Conway, Lake Nona, Belle Isle, Hunter’s Creek, and the surrounding International Drive and Millenia areas.
+          <p className="text-lg text-stone-600 leading-relaxed mb-8">
+            We proudly serve homeowners and businesses across the following areas:
           </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            {serviceAreas.map((area) => (
+              <span key={area} className="bg-green-100 text-green-800 font-medium px-4 py-2 rounded-full text-sm">
+                {area}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* --- FOOTER --- */}
       <footer className="bg-stone-900 text-stone-400 py-12 px-4 text-center">
         <p className="font-bold text-white text-xl mb-4">DZ CUTS LAWN CARE</p>
+        <p className="text-stone-500 text-sm mb-8">Mon - Fri: 8am - 6pm | Accepting Zelle, Venmo & Cash</p>
         <a 
           href="sms:3211469031" 
           className="inline-block bg-white text-stone-900 px-6 py-2 rounded-full font-bold hover:bg-stone-200 transition-colors"
