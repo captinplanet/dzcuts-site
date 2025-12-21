@@ -58,7 +58,8 @@ export default function Home() {
             href="tel:3211469031" 
             className="inline-block mb-8 bg-white/90 text-green-800 font-extrabold rounded-full px-6 py-2 shadow-lg hover:scale-105 transition-transform text-3xl md:text-4xl"
           >
-            Call or Text: 321-146-9031
+            <span className="block md:inline md:mr-2 mb-1 md:mb-0">Call or Text:</span>
+            <span className="block md:inline whitespace-nowrap">321-146-9031</span>
           </a>
           <div className="flex gap-4 justify-center">
             <a 
@@ -78,7 +79,7 @@ export default function Home() {
       </section>
 
       {/* --- SERVICES --- */}
-      <section className="py-20 px-4 bg-stone-100">
+      <section className="pt-20 pb-8 px-4 bg-stone-100">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -98,6 +99,16 @@ export default function Home() {
               <p className="text-stone-600">Seasonal cleanup, leaf removal, and fresh mulch installation.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* --- ABOUT THE OWNER --- */}
+      <section className="pt-0 pb-12 px-4 bg-stone-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-xl font-bold text-stone-700 mb-3">Local. Reliable. Family Owned.</h2>
+          <p className="text-base text-stone-500 max-w-2xl mx-auto">
+            DZ Cuts is family-owned and operated right here in the community. David has been a part of this area his whole life and has spent over a decade coaching local kids in baseball and soccer. When you hire us, you aren’t just getting a lawn service—you’re hiring a neighbor who cares about the neighborhood.
+          </p>
         </div>
       </section>
 
@@ -204,10 +215,19 @@ export default function Home() {
         </div>
       </section>
 
+      {/* --- SERVICE AREA --- */}
+      <section className="py-16 px-4 bg-white border-t border-stone-100">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-stone-800 mb-6">Serving Our Community</h2>
+          <p className="text-lg text-stone-600 leading-relaxed">
+            We proudly serve homeowners and businesses across Orlando and South Orlando, providing expert services to the SoDo District, Conway, Lake Nona, Belle Isle, Hunter’s Creek, and the surrounding International Drive and Millenia areas.
+          </p>
+        </div>
+      </section>
+
       {/* --- FOOTER --- */}
       <footer className="bg-stone-900 text-stone-400 py-12 px-4 text-center">
         <p className="font-bold text-white text-xl mb-4">DZ CUTS LAWN CARE</p>
-        <p className="mb-8">Serving Southchase & Orlando</p>
         <a 
           href="sms:3211469031" 
           className="inline-block bg-white text-stone-900 px-6 py-2 rounded-full font-bold hover:bg-stone-200 transition-colors"
