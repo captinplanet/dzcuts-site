@@ -38,7 +38,7 @@ export default function Home() {
     "image": "https://www.dzcutslawncare.com/work1.png",
     "description": "Professional lawn care, mowing, edging, and landscaping services in Orlando.",
     "areaServed": areaServedSchema, // Updated to use the object array
-    "telephone": "321-146-9031",
+    "telephone": "321-469-0131",
     "email": "dzcuts407@gmail.com",
     "priceRange": "$$",
     "address": {
@@ -107,7 +107,7 @@ export default function Home() {
             className="inline-block mb-8 bg-white/90 text-green-800 font-extrabold rounded-full px-6 py-2 shadow-lg hover:scale-105 transition-transform text-3xl md:text-4xl"
           >
             <span className="block md:inline md:mr-2 mb-1 md:mb-0">Call or Text:</span>
-            <span className="block md:inline whitespace-nowrap">321-146-9031</span>
+            <span className="block md:inline whitespace-nowrap">321-469-0131</span>
           </a>
           <div className="flex gap-4 justify-center">
             <a 
