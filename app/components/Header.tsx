@@ -67,7 +67,7 @@ export default function Header() {
 
       {/* MOBILE OVERLAY MENU */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 z-40 w-full h-screen bg-white md:hidden animate-in slide-in-from-top-5 fade-in duration-200 overflow-y-auto border-t border-stone-100 shadow-xl">
+        <div className="absolute top-full left-0 right-0 z-40 w-full h-screen bg-white md:hidden animate-menu-enter overflow-y-auto border-t border-stone-100 shadow-xl">
           <div className="flex flex-col p-4 space-y-6 text-center pb-20">
             {navLinks.map((link) => (
               <Link
