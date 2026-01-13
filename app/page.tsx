@@ -85,15 +85,13 @@ export default function Home() {
       </header>
 
       {/* --- HERO SECTION --- */}
-      <section className="relative h-[500px] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
-        <Image
-          src="/hero-bg.avif"
-          alt="Beautifully manicured green lawn in Orlando"
-          fill={true}
-          priority={true}
-          className="object-cover opacity-60"
-        />
-        
+      <section
+        className="relative h-[500px] flex items-center justify-center bg-stone-900 text-white overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/hero-bg.avif')",
+        }}
+      >
         <div className="relative z-20 text-center px-4 max-w-2xl">
           <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-md tracking-tight mb-4">
             Best Lawncare in Orlando.
@@ -112,13 +110,13 @@ export default function Home() {
           <div className="flex gap-4 justify-center">
             <a 
               href="mailto:dzcuts407@gmail.com" 
-              className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
+              className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-bold text-lg transition-all hover:bg-white hover:text-green-800 hover:scale-105"
             >
               Email
             </a>
             <a 
               href="#gallery" 
-              className="bg-green-700 hover:bg-green-800 text-white px-6 py-3 rounded-md font-bold text-lg transition-transform hover:scale-105"
+              className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-bold text-lg transition-all hover:bg-white hover:text-green-800 hover:scale-105"
             >
               See Our Work
             </a>
@@ -154,7 +152,7 @@ export default function Home() {
       <section className="pt-0 pb-12 px-4 bg-stone-100">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-xl font-bold text-stone-700 mb-3">Local. Reliable. Family Owned.</h2>
-          <p className="text-base text-stone-500 max-w-2xl mx-auto">
+          <p className="text-base text-[#333333] max-w-2xl mx-auto">
             DZ Cuts is family-owned and operated right here in the community. David has been a part of this area his whole life and has spent over a decade coaching local kids in baseball and soccer. When you hire us, you aren’t just getting a lawn service—you’re hiring a neighbor who cares about the neighborhood.
           </p>
         </div>
