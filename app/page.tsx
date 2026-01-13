@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import Header from "./components/Header";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.dzcutslawncare.com'),
@@ -69,20 +70,9 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
       {/* --- HEADER --- */}
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm border-b border-stone-200">
-        <div className="max-w-5xl mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="font-bold text-xl tracking-tight text-green-800">
-            DZ CUTS <span className="font-light text-stone-600">Lawn Care</span>
-          </div>
-          <a 
-            href="tel:3211469031" 
-            className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-full font-medium transition-colors text-sm"
-          >
-            Call or Text
-          </a>
-        </div>
-      </header>
+      <Header />
 
       {/* --- HERO SECTION --- */}
       <section
@@ -125,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* --- SERVICES --- */}
-      <section className="pt-20 pb-8 px-4 bg-stone-100">
+      <section id="services" className="pt-20 pb-8 px-4 bg-stone-100 scroll-mt-32">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Our Services</h2>
           <div className="grid md:grid-cols-3 gap-8 text-center">
@@ -159,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* --- TESTIMONIALS --- */}
-      <section className="py-20 px-4 bg-white">
+      <section id="reviews" className="py-20 px-4 bg-white scroll-mt-32">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">What Our Neighbors Say</h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -187,7 +177,7 @@ export default function Home() {
       </section>
 
       {/* --- FAQ --- */}
-      <section className="py-20 px-4 bg-stone-50">
+      <section id="faq" className="py-20 px-4 bg-stone-50 scroll-mt-32">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12 text-stone-800">Common Questions</h2>
           <div className="grid md:grid-cols-2 gap-8">
